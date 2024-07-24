@@ -16,4 +16,18 @@ const getComputerChoice = () => {
     }
 }; 
 
-console.log(getComputerChoice());
+//Get the humans input and store it in the variable getHumanChoice.//
+
+const getHumanChoice = () => {
+    let humanChoice = prompt("Please type your choice...Rock, Paper or Scissors!");
+    humanChoice = humanChoice.toLowerCase();
+    
+    if (humanChoice !== 'rock' && humanChoice !== 'paper' && humanChoice !== 'scissors') {
+        return 'Please enter Rock, Paper, or Scissors ya spastic!';
+    } else {
+        return `You choose ${humanChoice}.`;
+    }
+};
+
+console.log(getHumanChoice());
+
