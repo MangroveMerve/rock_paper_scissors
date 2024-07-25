@@ -19,14 +19,14 @@ let computerChoice = getComputerChoice();
 //Get the humans input and store it in the variable getHumanChoice.//
 
 const getHumanChoice = () => {
-    let hChoice = prompt("Please type your choice...Rock, Paper or Scissors!");
-    hChoice = hChoice.toLowerCase();
-    
-    if (hChoice !== 'rock' && hChoice !== 'paper' && hChoice !== 'scissors') {
-        return 'Please enter Rock, Paper, or Scissors ya spastic!';
-    } else {
-        return hChoice;
-    }
+    let hChoice;
+//Using a 'do while' loop to make sure the user is re-prompted if they make an incorrect entry. 
+    do {
+        hChoice = prompt("Please type your choice... Rock, Paper, or Scissors!");
+        hChoice = hChoice.toLowerCase();
+    } while (hChoice !== 'rock' && hChoice !== 'paper' && hChoice !== 'scissors');
+
+    return hChoice;
 };
 
 let humanChoice = getHumanChoice();
