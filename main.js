@@ -6,32 +6,54 @@ const getComputerChoice = () => {
     console.log(num);
 
     if (num < 34) {
-        return 'Rock';
+        return 'rock';
     } else if (num < 67) {
-        return 'Paper';
+        return 'paper';
     } else if (num < 100) {
-        return 'Scissors';
+        return 'scissors';
     } else { 
         console.log("Shit! I've fucked something up here." );
     }
 }; 
-
+let computerChoice = getComputerChoice();
 //Get the humans input and store it in the variable getHumanChoice.//
 
 const getHumanChoice = () => {
-    let humanChoice = prompt("Please type your choice...Rock, Paper or Scissors!");
-    humanChoice = humanChoice.toLowerCase();
+    let hChoice = prompt("Please type your choice...Rock, Paper or Scissors!");
+    hChoice = hChoice.toLowerCase();
     
-    if (humanChoice !== 'rock' && humanChoice !== 'paper' && humanChoice !== 'scissors') {
+    if (hChoice !== 'rock' && hChoice !== 'paper' && hChoice !== 'scissors') {
         return 'Please enter Rock, Paper, or Scissors ya spastic!';
     } else {
-        return `You choose ${humanChoice}.`;
+        return hChoice;
     }
 };
 
-console.log(getHumanChoice());
+let humanChoice = getHumanChoice();
+console.log(humanChoice);
 
 //create variables to track the players score and computers score. Initial score is 0. 
 let humanScore = 0;
 let computerScore = 0;
 
+//play a single round of Rock Paper Scissors. Create a function that compares humanChoice & computerChoice and adds to the winners score. 
+
+const playRound = (humanChoice, computerChoice) => {
+    if (humanChoice === computerChoice) {
+        return `Draw cuns! Try again!`; 
+    } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+        humanScore ++;
+        return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
+    } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+        humanScore ++;
+        return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
+    } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+        humanScore ++;
+        return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
+    } else {
+        computerScore ++; 
+        return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You lost this one.`;
+    }
+};
+
+console.log(playRound(humanChoice, computerChoice));
