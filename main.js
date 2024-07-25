@@ -31,3 +31,7 @@ const getHumanChoice = () => {
 
 console.log(getHumanChoice());
 
+//create variables to track the players score and computers score. Initial score is 0. 
+let humanScore = 0;
+let computerScore = 0;
+
