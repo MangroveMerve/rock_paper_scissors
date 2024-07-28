@@ -1,6 +1,6 @@
 console.log("Hello Cunts! Welcome to Rock Paper Scissors!");
 
-//Get the computers choice and store it in the variable getComputerChoice.//
+//Get the computers choice and store it in the variable getComputerChoice.
 const getComputerChoice = () => {
     let num = Math.floor(Math.random()*99);
     console.log(num);
@@ -15,9 +15,8 @@ const getComputerChoice = () => {
         console.log("Shit! I've fucked something up here." );
     }
 }; 
-let computerChoice = getComputerChoice();
-//Get the humans input and store it in the variable getHumanChoice.//
 
+//Get the humans input and store it in the variable getHumanChoice.
 const getHumanChoice = () => {
     let hChoice;
 //Using a 'do while' loop to make sure the user is re-prompted if they make an incorrect entry. 
@@ -29,31 +28,49 @@ const getHumanChoice = () => {
     return hChoice;
 };
 
-let humanChoice = getHumanChoice();
-console.log(humanChoice);
+//create variables to track the players score and computers score. Initial score is 0.     
+    let humanScore = 0;
+    let computerScore = 0;
 
-//create variables to track the players score and computers score. Initial score is 0. 
-let humanScore = 0;
-let computerScore = 0;
+//Create a function that compares humanChoice & computerChoice and adds to the winners score. 
+    const playRound = (humanChoice, computerChoice) => {
+        if (humanChoice === computerChoice) {
+            return `Draw cuns! Try again!`; 
+        } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+            humanScore ++;
+            return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
+        } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+            humanScore ++;
+            return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
+        } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+            humanScore ++;
+            return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
+        } else {
+            computerScore ++; 
+            return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You lost this one.`;
+        }
+    };
 
-//play a single round of Rock Paper Scissors. Create a function that compares humanChoice & computerChoice and adds to the winners score. 
+//Create a function to play 5 rounds of the game.
+const playGame = () => {
 
-const playRound = (humanChoice, computerChoice) => {
-    if (humanChoice === computerChoice) {
-        return `Draw cuns! Try again!`; 
-    } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-        humanScore ++;
-        return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
-    } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-        humanScore ++;
-        return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
-    } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        humanScore ++;
-        return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You win g.`;
-    } else {
-        computerScore ++; 
-        return `You chose ${humanChoice} against the computer's choice of ${computerChoice}. You lost this one.`;
-    }
+//Use a 'for' loop to play 5 rounds.
+    for (let i = 0; i < 5; i++) {
+    let computerChoice = getComputerChoice();
+    let humanChoice = getHumanChoice();
+
+    console.log(playRound(humanChoice, computerChoice));
+  };
+
+  if (humanScore === computerScore) {
+    return console.log(`Scores are Human: ${humanScore} Computer: ${computerScore}. It's a draw you shit cunts.`);
+  } else if (humanScore > computerScore) {
+    return console.log(`Scores are Human: ${humanScore} Computer: ${computerScore}. Human wins!`);
+  } else {
+    return console.log(`Scores are Human: ${humanScore} Computer: ${computerScore}. Computer wins`);
+  }
 };
 
-console.log(playRound(humanChoice, computerChoice));
+playGame();
+
+//could tidy this up more but can't be fucked. I get the gist enough. Thanks for playing ya stingrays.. Mangrove Merve out. 
